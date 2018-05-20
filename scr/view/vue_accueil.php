@@ -60,10 +60,10 @@
         <img src="../image/seConnecter1.jpg" />
     </div>
     <div class="seConnecter2">
-        <a href="../vue/seConnecter.html"><img src="../image/seConnecter2.jpg"/></a>
+        <a href="../view/vue_connexion.php"><img src="../image/seConnecter2.jpg"/></a>
     </div>
     <div class="titre">
-        <a href="../vue/accueil.html"><img src="../image/bg.jpg" alt = "titre"/></a>
+        <a href="../view/vue_accueil.php"><img src="../image/bg.jpg" alt = "titre"/></a>
     </div>
     <br /> <br />
     <form>

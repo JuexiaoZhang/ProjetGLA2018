@@ -49,19 +49,12 @@
 					break;
 
 				// Inscription : création du membre dans la BD
-				case 6 :
+				case 5 :
 					$co = $args[0];
 					$nom = $args[1];
 					$prenom = $args[2];
 					$email = $args[3];
 					$mdp = $args[4];
-					$mdp2 = $args[5];
-
-
-					$email = test_input($email);
-					if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)) {
-						$emailErr = "adresse email impossible"; 
-					}
 
 					$req = "INSERT INTO Utilisateur
 							VALUES ('','$pseudo', '$nom', '$prenom', '$mdp','$type')";

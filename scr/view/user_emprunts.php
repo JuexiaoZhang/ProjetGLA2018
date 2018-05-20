@@ -18,6 +18,14 @@
         padding: 5px;
         height: 160px;
     }
+    /*    .recherche{
+            width: 630px;
+            height: 48px;
+            background:rgba(0,0,0,.2);
+            padding:15px;
+            
+            border-radius:5px;          
+        }*/
 
     input {
         width: 480px;
@@ -44,7 +52,7 @@
         font-weight: bold;
     }
     /*使用伪类来添加三角符号*/
-/*
+
     button:before {
         content: "";
         border-width: 6px;
@@ -53,7 +61,7 @@
         position: absolute;
         right: 100%;
         top: 38%;
-    }*/
+    }
 
 
     #navigation {
@@ -100,7 +108,7 @@
     <div id="navigation">
         <h2> 
             Bienvenue <br/> 
-            Madame/Monsieur <br/>
+            Monsieur/Madame <br/>
             <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> <br/>
         </h2>
         <br/>
@@ -113,23 +121,13 @@
         <br>
     </div>
     <div id="section">
-        <h2>Mes données personnelles</h2>
-        <p> Id : <?php echo $_SESSION["id"] ?> </p>
-        <p> Email : <?php echo $_SESSION["email"] ?></p>
-        <p> Portable : pas encore definit</p>
-        <p> Situation : 
-            <?php if ($_SESSION["estValide"]==1)
-                echo "Vous êtes un/une utilisateur validé. Vous pouver emprunter/réserver les articles
-                <p> Caution : ".$_SESSION["caution"]."€</p>
-                <p> Finance : ".$_SESSION["finance"]."€</p>";
-                else echo "Votre inscription n'est pas encore validé.";
-            ?>
-        </p> 
-
-        <br/>
-        
-        <p> Je souhaite modifier mes données personnelles, mes préférences de communication, mon mot de passe... </p>
-        <button> Modifier </button>
+        <h2>Mes emprunts</h2>
+        <p>
+            bla bla
+        </p>
+        <p>
+            bla bla
+        </p>
     </div>
 </body>
 

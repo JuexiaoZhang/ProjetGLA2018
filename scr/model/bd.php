@@ -12,6 +12,7 @@
 			$this->user = "root";
 			$this->passwd = "";
 			$this->bdd = "mediatheque";
+			
 		}
 	
 		// Connexion à la base de données

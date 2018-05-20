@@ -23,7 +23,7 @@
 				<p><center>Vous pouvez saisir votre information si-cesous:</center></p>
 
 				<div style="color: red;font-size: 14px;">
-				<?php if(isset($_SESSION["erreurConnexion"])){ echo $_SESSION["erreurConnexion"]; }?>
+				<?php if(isset($_SESSION["erreurInscription"])){ echo $_SESSION["erreurInscription"]; }?>
 				</div>
 
 				<div><fieldset>
@@ -46,16 +46,19 @@
 								<input type="text" name="prenom" id="prenom"/> <br/>
 								<br/>
 							<label for="email"> Email </label>
-								<input type="text" name="prenom" id="prenom"/> <br/>
+								<input type="text" name="email" id="email"/> <br/>
+								<div style="color: red;font-size: 14px;">
+								<?php if(isset($_SESSION["erreurEmail"])){ echo $_SESSION["erreurEmail"]; }?> 
+								</div>
 								<br/>
 							<label for="mdp"> Mot de passe </label>
 								<input type="password" name="mdp" id="mdp"/> <br/>
 								<br/>
 							<label for="mdp2"> Confirmer votre mot de passe </label>
 								<input type="password" name="mdp2" id="mdp2"/> <br/>
-							<div style="color: red;font-size: 14px;">
-							<?php if(isset($_SESSION["erreurMdp"])){ echo $_SESSION["erreurMdp"]; }?> 
-							</div>
+								<div style="color: red;font-size: 14px;">
+								<?php if(isset($_SESSION["erreurMdp"])){ echo $_SESSION["erreurMdp"]; }?> 
+								</div>
 
 								<br/>
 							<input type="submit" name ="Action" value = "ENVOYER"/> <br/>
@@ -69,6 +72,8 @@
 
 </html>
 
-<?php unset($_SESSION["erreurConnexion"]); 
-		unset($_SESSION["erreurMdp"])
+<?php 
+	unset($_SESSION["erreurInscription"]); 
+	unset($_SESSION["erreurEmail"]);
+	unset($_SESSION["erreurMdp"]);
 ?>

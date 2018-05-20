@@ -8,7 +8,7 @@
 
 <head>
     <link rel="stylesheet" href="../style/style.css" />
-    <title> Mon compte </title>
+    <title> GestionnaireExemplaire </title>
     <meta charset="UTF-8">
     <style>
     #header {
@@ -26,8 +26,20 @@
         border: none;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
-        font: bold 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
         font-style: italic;
+    }
+
+    input.operation {
+        width: 480px;
+        height: 50px;
+        background-color: #eeeeee;
+        border: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        font-style: italic;
+        color: gray;
     }
 
     button {
@@ -44,7 +56,7 @@
         font-weight: bold;
     }
     /*使用伪类来添加三角符号*/
-/*
+
     button:before {
         content: "";
         border-width: 6px;
@@ -53,7 +65,7 @@
         position: absolute;
         right: 100%;
         top: 38%;
-    }*/
+    }
 
 
     #navigation {
@@ -93,43 +105,41 @@
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
         <form>
             <input type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER
-            </button>
+            <button> CHERCHER </button>
         </form>
     </div>
     <div id="navigation">
         <h2> 
             Bienvenue <br/> 
-            Madame/Monsieur <br/>
+            Monsieur/Madame <br/>
             <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> <br/>
         </h2>
         <br/>
-        <a href="../view/vue_compte_user.php">Mes donées personnelles </a>
+        <a href="../view/vue_compte_gest.php">Mes données </a>
         <br/>
-        <a href="../view/user_emprunts.php">Mes emprunts </a>
+        <a href="../view/gest_infoUser.php">Données d'utilisateurs </a>
         <br/>
-        <a href="../view/user_reservations.php">Mes réservations </a>
+        <a href="../view/gest_emprunts.php">Les emprunts </a>
         <br/>
-        <br>
+        <a href="../view/gest_reservations.php">Les réservations </a>
+        <br/>
+        <a href="../view/gest_articles.php">Les articles </a>
+        <br/>
+        <a href="../view/gest_exemplaires.php">Les exemplaires </a>
+        <br/>
+        <br/>
     </div>
     <div id="section">
-        <h2>Mes données personnelles</h2>
-        <p> Id : <?php echo $_SESSION["id"] ?> </p>
-        <p> Email : <?php echo $_SESSION["email"] ?></p>
-        <p> Portable : pas encore definit</p>
-        <p> Situation : 
-            <?php if ($_SESSION["estValide"]==1)
-                echo "Vous êtes un/une utilisateur validé. Vous pouver emprunter/réserver les articles
-                <p> Caution : ".$_SESSION["caution"]."€</p>
-                <p> Finance : ".$_SESSION["finance"]."€</p>";
-                else echo "Votre inscription n'est pas encore validé.";
-            ?>
-        </p> 
-
+        <h2>Opération</h2>
+        <input class="operation" type="text" value="id d'exemplaire à supprimer" />
+        <button> Supprimer </button>
         <br/>
-        
-        <p> Je souhaite modifier mes données personnelles, mes préférences de communication, mon mot de passe... </p>
-        <button> Modifier </button>
+        <br/>
+        <input class="operation" type="text" value="idArticle d'exemplaire à ajouter" />
+        <button> Ajouter </button>
+        <br/>
+        <br/>
+        <h2>Les exemplaires</h2>
     </div>
 </body>
 

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (!isset($_SESSION["id"]))
+        header('Location: vue_connexion.php');
+?>
+
 <!DOCTYPE html>
 <html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -89,10 +95,10 @@
 
 <body link="#00486C" alink="#00486C" vlink="#00486C">
     <div class="upsudLogo">
-        <a href="../view/vue_accueil.html"><img src="../image/upsudLogo.png"/></a>
+        <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
-        <a href="../view/vue_accueil.html">
+        <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
         <form>
             <input type="text" name="recherche" value="Chercher un article..." />
@@ -104,24 +110,30 @@
         <h2> 
             Bienvenue <br/> 
             Monsieur/Madame <br/>
-            *******
+            <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> <br/>
         </h2>
         <br/>
-        <a href="../view/vue_compte.php">Mes donées personnelles </a>
+
+        <a href="../view/vue_compte_gest.php">Mes données </a>
         <br/>
-        <a href="../view/vue_emprunts.php">Mes emprunts </a>
+        <a href="../view/gest_infoUser.php">Données d'utilisateurs </a>
         <br/>
-        <a href="../view/vue_reservation.php">Mes réservation </a>
+        <a href="../view/gest_emprunts.php">Les emprunts </a>
+        <br/>
+        <a href="../view/gest_reservations.php">Les réservations </a>
+        <br/>
+        <a href="../view/gest_articles.php">Les articles </a>
+        <br/>
+        <a href="../view/gest_exemplaires.php">Les exemplaires </a>
         <br/>
         <br>
     </div>
     <div id="section">
         <h2>Mes données personnelles</h2>
-        <p>
-            bla bla
-        </p>
-        <p>
-            bla bla
+        <p> Id : <?php echo $_SESSION["id"] ?> </p>
+        <p> Email : <?php echo $_SESSION["email"] ?></p>
+        <p> Nom : <?php echo $_SESSION["nom"] ?> </p>
+        <p> Prenom : <?php echo $_SESSION["prenom"] ?></p>
         </p>
     </div>
 </body>
