@@ -1,0 +1,81 @@
+﻿/*-----------------------------------------*/
+/* Angélique ETIENNE - Juexiao ZHANG (3B2) */
+/* CSS Page d'accueil					   */
+/*-----------------------------------------*/
+
+/* Couleur de fond du site*/
+
+body {
+	background-color: lightblue;
+	font-family: "Calibri";
+	color: #515151;
+	background-image:url(../images/Logo_background.png);
+	background-repeat:no-repeat;
+	background-position:-25px 200px;
+}
+
+.bloc_page {
+    width: 43%;
+    margin: auto;
+    border: none;
+}
+
+.texte {
+	font-family: Calibri;
+	color: #515151;
+	font-size: 20px;
+}
+
+/* Grand titre */
+
+h1 {
+	font-family: Century Gothic;
+	color: #515151;
+	font-size: 60px;
+	text-align: center;
+}
+
+/* Entête formulaire */
+
+h2 {
+	font-family: Century Gothic;
+	color: #00486C;
+	font-size: 35px;
+	text-align: center;
+}
+
+/* Style des fieldset */
+
+fieldset {
+	margin: auto;
+	padding: 20px;
+	border:1px solid #00486C;
+	width:100%;
+ }
+ 
+/* Champs du formulaire */
+
+input, textarea, select {
+	padding:3px;
+	border:1px solid #AADAEF;
+	border-radius:5px;
+	box-shadow:1px 1px 2px #C0C0C0 inset;
+}
+
+/* Boutons */
+
+input[type=submit], input[type=reset] {
+	width:100px;
+	margin-left:5px;
+	 
+	background-color: #00486C;
+	padding: 3px;
+	border:1px solid #AADAEF;
+	border-radius:5px;
+	box-shadow:1px 1px 1px #00486C;
+	cursor:pointer;
+	 
+	/*font-family: Calibri;*/
+	font-size: 20px;
+	color: #FFFFFF;
+ }
