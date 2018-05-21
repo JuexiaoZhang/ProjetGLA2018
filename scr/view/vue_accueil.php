@@ -1,3 +1,7 @@
+
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
 

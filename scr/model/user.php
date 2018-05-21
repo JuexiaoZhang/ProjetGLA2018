@@ -56,8 +56,10 @@
 					$email = $args[3];
 					$mdp = $args[4];
 
-					$req = "INSERT INTO Utilisateur
-							VALUES ('','$pseudo', '$nom', '$prenom', '$mdp','$type')";
+					
+
+
+					$req = "INSERT INTO personne(mdp, email, prenom, nom, estValide, type, caution, finance) VALUES ('".$mdp."','".$email."','".$prenom."','".$nom."',0,'utilisateur',0,0)";
 
 					$res = mysqli_query($co, $req)
 						or die ("Erreur lors de l'inscription");
@@ -66,7 +68,7 @@
 					$this->id = mysqli_insert_id($co); // retourne l'identifiant automatiquement généré par la dernière requête
 					$this->nom = $nom;
 					$this->prenom = $prenom;
-					$this->pseudo = $this->prenom.".".$this->nom;
+					$this->email = $email;
 					$this->mdp = $mdp;
 					$this->type = $type;
 					

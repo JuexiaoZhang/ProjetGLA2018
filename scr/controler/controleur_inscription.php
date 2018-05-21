@@ -74,6 +74,6 @@
 
 	$user = new User($co,$nom,$prenom,$email,$mdp);
 
-	header('Location:../view/vue_connexion.php');
+	header('Location:../view/vue_accueil.php');
 
 ?>
