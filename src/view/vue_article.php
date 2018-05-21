@@ -87,11 +87,12 @@
     <div id="header">
         <a href="../vue/accueil.html">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
+        <form >
             <input type="text" name="recherche" value="Chercher un article..." />
             <button> CHERCHER </button>
         </form>
     </div>
+    
     <p> Accueil - Article </p>
     <h2> Une fille comme elle </h2>
     <p> Marc Levy(Auteur) - Paru le mai 2018 - Roman</p>
