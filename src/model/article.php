@@ -60,27 +60,6 @@
 					$description = $args[10];
 
 					$req = "INSERT INTO article (titre, auteur, datePublication, photo, fraisEmprunt, caution, description, type) VALUES ('".$titre."', 'auteurtest2', '".$dateYear."-".$dateMonth."-".$dateDay."', '".$urlPhoto."', ".$frais.", ".$caution.", '".$description."', '".$type."')";
-					
-					// $req = "INSERT INTO article (titre, auteur, datePublication, photo, fraisEmprunt, caution, description, type) 
-					// 	VALUES ('".$titre."',
-					// 			'".$auteur."',
-					// 			'".$dateYear."-".$dateMonth."-".$dateDay"',
-					// 			'hahahaa',
-					// 			20,
-					// 			20,
-					// 			'hahaha',
-					// 			'livre')";
-
-
-					// $req = "INSERT INTO article (titre, auteur, datePublication, photo, fraisEmprunt, caution, description, type) 
-					// 	VALUES ('".$titre."',
-					// 			'".$auteur."',
-					// 			'".$dateYear."-".$dateMonth."-".$dateDay"',
-					// 			'".$urlPhoto."',
-					// 			".$frais.",
-					// 			".$caution.",
-					// 			'".$description."',
-					// 			'".$type."')";
 
 					$res = mysqli_query($co, $req)
 						or die ("Erreur lors de l'inscription");

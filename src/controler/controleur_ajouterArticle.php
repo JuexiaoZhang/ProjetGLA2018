@@ -40,17 +40,7 @@
 		$co= $bd->connexion();
 		$m = new Article($co,$type,$titre,$auteur,$dateDay,$dateMonth,$dateYear,$urlPhoto,$frais,$caution,$description);
 		
-		
-		// // Si le mot de passe est correct
-		// if ($m->verif_pwd($pwd))
-		// {
-		// 	$m->connexion();
-		// 	header('Location:../view/vue_accueil.php');
-		// }
-		// // Si le mot de passe n'est pas correct
-		// else 
-		// 	header('Location:../view/vue_connexion.php');
-		// 	echo $_SESSION["erreurArticle"] = "Mot de passe erroné."; 
+		header('Location:../view/gest_articles.php');
 	}
 	// Si les champs n'ont pas été saisis
 	else {

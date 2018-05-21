@@ -1,7 +1,12 @@
 <?php
+    
     session_start();
-    if (!isset($_SESSION["id"]))
+    ob_start();
+    if (!isset($_SESSION["id"])){
         header('Location: vue_connexion.php');
+    }
+    // error_reporting(E_ERROR);  
+    // ini_set("display_errors","Off");
 ?>
 <!DOCTYPE html> <!-- html5 -->
 
@@ -178,7 +183,9 @@
         <h2> 
             Bienvenue <br/> 
             Monsieur/Madame <br/>
-            <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> <br/>
+
+            <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> 
+        <br/>
         </h2>
         <br/>
         <a href="../view/vue_compte_gest.php">Mes données personnelles</a>
@@ -196,6 +203,15 @@
         <br/>
     </div>
     <div id="section">
+        <h2>Données articles</h2>
+        <?php
+            if(!isset($_SESSION["listArticle"])){
+                header('Location:../controler/controleur_articleList.php');
+               
+            }
+            else
+                echo $_SESSION["listArticle"];
+        ?>
         <h2>Opération</h2>
 
         <div > <fieldset>
@@ -262,7 +278,7 @@
 
         <div > <fieldset>
             <legend> <h3>Supprimer un article </h3></legend>
-            <form method="post" action="../controler/controleur_article.php">
+            <form method="post" action="../controler/controleur_supprimerArticle.php">
                 <input class="operation" type="text" name="idArt" id="idArt" value="id d'article à supprimer" />
                 <input type="submit" value="Supprimer">
             </form>
@@ -326,4 +342,5 @@
     </div>
 </body>
 </html>
-<?php unset($_SESSION["erreurArticle"]); ?>
+<?php unset($_SESSION["erreurArticle"]); 
+unset($_SESSION["listArticle"]);?>
