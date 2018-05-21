@@ -30,7 +30,7 @@
         font-style: italic;
     }
 
-    button {
+    button.chercher {
 
         width: 140px;
         height: 50px;
@@ -43,9 +43,10 @@
         font-size: 18px;
         font-weight: bold;
     }
+
     /*使用伪类来添加三角符号*/
-/*
-    button:before {
+
+    button.chercher:before {
         content: "";
         border-width: 6px;
         border-style: solid;
@@ -53,7 +54,19 @@
         position: absolute;
         right: 100%;
         top: 38%;
-    }*/
+    }
+
+    button.modifier {
+        width: 80px;
+        height: 30px;
+        background-color: #00486C;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        position: relative;
+        font-size: 14px;
+        font-weight: bold;
+    }   
 
 
     #navigation {
@@ -93,7 +106,7 @@
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
         <form>
             <input type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER
+            <button class="chercher"> CHERCHER
             </button>
         </form>
     </div>
@@ -115,22 +128,26 @@
     <div id="section">
         <h2>Mes données personnelles</h2>
         
-        <p> Id : <?php echo $_SESSION["id"] ?> </p>
-        <p> Email : <?php echo $_SESSION["email"] ?></p>
-        <p> Portable : pas encore definit</p>
-        <p> Situation : 
+        <p> <b> Id : </b> <?php echo $_SESSION["id"] ?> </p>
+        <p> <b>Email : </b><?php echo $_SESSION["email"] ?></p>
+        <p> <b>Portable : pas encore definit</b></p>
+        <p> <b>Situation : </b>
             <?php if ($_SESSION["estValide"]==1)
                 echo "Vous êtes un/une utilisateur validé. Vous pouver emprunter/réserver les articles
-                <p> Caution : ".$_SESSION["caution"]."€</p>
-                <p> Finance : ".$_SESSION["finance"]."€</p>";
+                <p> <b>Caution : </b>".$_SESSION["caution"]."€</p>
+                <p> <b>Finance : </b>".$_SESSION["finance"]."€</p>";
                 else echo "Votre inscription n'est pas encore validé.";
             ?>
         </p> 
 
         <br/>
         
-        <p> Je souhaite modifier mes données personnelles, mes préférences de communication, mon mot de passe... </p>
-        <button onclick="window.location='../view/user_modifierInfo.php';"> Modifier </button><br/> <br/> 
+        <b> Aller modifier mes informations personnells </b>
+        <button class="modifier" onclick="window.location='../view/user_modifierInfo.php';"> Modifier </button>
+        <br/>  <br/>
+        <b> Aller modifier mon mot de passe </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="modifier" onclick="window.location='../view/user_modifierMdp.php';"> Modifier </button><br/> 
+        <br/> 
     </div>
 </body>
 
