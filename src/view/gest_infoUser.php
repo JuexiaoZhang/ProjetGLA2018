@@ -143,23 +143,15 @@
         <button> Valider </button> <br/> <br/>
 
         <h2>Données d'utilisateurs</h2>
-        <?php
-            if(!isset($_SESSION["co"])) {
-                header('Location:../controler/controleur_gest_consulterUser.php'); 
-            }
-            $co = $_SESSION["co"]; 
 
-            $req = "SELECT * FROM personne"; 
-            $res = mysqli_query($co, $req)
-                or die ("Erreur lors de l'obtention les données des utilisateurs.");
-            $row = mysqli_fetch_assoc($res);
-
-            $cat = "SELECT * FROM personne";
-            foreach($cat as $c){
-                echo $c[nom];
-            }
-        ?>
+       <?php
+            if(!isset($_SESSION["listInfoUser"])) 
+                header('Location:../controler/controleur_gest_consulterUser.php');
+            else
+                echo $_SESSION["listInfoUser"];
+        ?> 
     </div>
 </body>
-
 </html>
+
+<?php unset($_SESSION["listInfoUser"]);?>
