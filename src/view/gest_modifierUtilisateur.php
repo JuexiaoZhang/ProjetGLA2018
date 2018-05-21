@@ -8,7 +8,7 @@
 
 <head>
     <link rel="stylesheet" href="../style/stylePrincipal.css" />
-    <title> ModifierUtilisateur </title>
+    <title> gest_ModifierUtilisateur </title>
     <meta charset="UTF-8">
     <style>
 /*    button {
@@ -76,7 +76,7 @@
                             <input type="text" name="nom" id="nom" />
                             <br/>
                             <br/>
-                            <label for="estValide"> estValide (Entrez o ou 1)</label>
+                            <label for="estValide"> estValide (Entrez 0 ou 1)</label>
                             <input type="boolean" name="estValide" id="estValide" />
                             <br/>
                             <br/>

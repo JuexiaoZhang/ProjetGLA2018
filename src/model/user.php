@@ -90,6 +90,24 @@
 			or die ("Erreur modification mot de passe");
 		}
 
+		public function modif_infoPersoNom($nom)
+		{
+			$this->nom = $nom;
+			$id = $this->id; 
+	    	mysqli_query($this->co, "UPDATE personne SET nom='$nom' WHERE idPersonne='$id'")
+				or die ("Erreur modification infos personnelles");
+			$_SESSION['nom'] = $this->nom;
+		}
+
+		public function modif_infoPersoPrenom($prenom)
+		{
+			$this->prenom = $prenom;
+			$id = $this->id; 
+	    	mysqli_query($this->co, "UPDATE personne SET prenom='$prenom' WHERE idPersonne='$id'")
+				or die ("Erreur mnodification infos personnelles");
+			$_SESSION['prenom'] = $this->prenom;
+		}
+
 		public function connexion()
 		{
 			session_start();
@@ -104,6 +122,7 @@
 			$_SESSION['caution'] = $this->caution;
 			$_SESSION['finance'] = $this->finance;
 		}	
+
 		public function deconnexion()
 		{
 			session_destroy();
