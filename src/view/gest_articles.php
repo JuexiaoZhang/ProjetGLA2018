@@ -212,7 +212,6 @@
                     </select>
                 <br/>
                 <br/>
-                <br/>
                 <label for="titre"> Titre :  </label>
                     <input type="text" name="titre" id="titre" />
                 <br/>
@@ -228,7 +227,7 @@
                     <input class="date" type="text" name="dateMonth" id="dateMonth" />
                     -
                     <input class="date" type="text" name="dateYear" id="dateYear" />
-                     (Jour - Moi - Année)
+                     (JJ - MM - AAAA)
                 <br/>
                 <br/>
 

@@ -10,7 +10,9 @@
 	if (!empty($_POST["type"]) &&
 		!empty($_POST["titre"]) && 
 		!empty($_POST["auteur"]) &&
-		!empty($_POST["datePublication"]) &&
+		!empty($_POST["dateDay"]) &&
+		!empty($_POST["dateMonth"]) &&
+		!empty($_POST["dateYear"]) &&
 		!empty($_POST["urlPhoto"]) &&
 		!empty($_POST["frais"]) &&
 		!empty($_POST["caution"]) &&
@@ -19,7 +21,16 @@
 		$type = $_POST["type"];
 		$titre = $_POST["titre"];
 		$auteur = $_POST["auteur"];
-		$datePublication = $_POST["datePublication"];
+
+		$dateDay = $_POST["dateDay"];
+		$dateMonth = $_POST["dateMonth"];
+		$dateYear = $_POST["dateYear"];
+
+		// if ($dateDay<0 || $dateDay>31) {
+		// 	header('Location:../view/gest_articles.php');
+		// 	echo $_SESSION["erreurArticle"] = "Veuille remplir tout les champs, svp.";
+		// }
+
 		$urlPhoto = $_POST["urlPhoto"];
 		$frais = $_POST["frais"];
 		$caution = $_POST["caution"];
@@ -27,7 +38,8 @@
 		
 		$bd = new Bd();
 		$co= $bd->connexion();
-		$m = new Article($co,$type,$titre,$auteur,$datePublication,$urlPhoto,$frais,$caution,$description);
+		$m = new Article($co,$type,$titre,$auteur,$dateDay,$dateMonth,$dateYear,$urlPhoto,$frais,$caution,$description);
+		
 		
 		// // Si le mot de passe est correct
 		// if ($m->verif_pwd($pwd))
