@@ -69,21 +69,21 @@
 
         if ($_SESSION["type"]=="utilisateur") {
             echo "
-                <div class=\"seConnecter2\">
+                <div class=\"monCompte\">
                     <a href=\"../view/vue_compte_user.php\"><img src=\"../image/monCompte.jpg\"/></a>
                 </div>
                 ";
 
         }else{
             echo "
-                <div class=\"seConnecter2\">
+                <div class=\"monCompte\">
                     <a href=\"../view/vue_compte_gest.php\"><img src=\"../image/monCompte.jpg\"/></a>
                 </div>
                 ";
         }
-        
+        // style=\"position: absolute; margin-left: 60%; height: 30px; width: 180px;
         echo "
-            <div class=\"deconnecter\" style=\"position: absolute; margin-left: 42%; height: 30px; width: 180px;\">
+            <div class=\"deconnecter\" \">
                 <a href=\"../controler/controleur_deconnexion.php\"><img src=\"../image/deconnecter.jpg\"/></a>
             </div>
         ";
