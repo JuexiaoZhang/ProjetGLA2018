@@ -104,8 +104,17 @@
 			$this->prenom = $prenom;
 			$id = $this->id; 
 	    	mysqli_query($this->co, "UPDATE personne SET prenom='$prenom' WHERE idPersonne='$id'")
-				or die ("Erreur mnodification infos personnelles");
+				or die ("Erreur modification infos personnelles");
 			$_SESSION['prenom'] = $this->prenom;
+		}
+
+		public function modif_mdpParMdpActuel($mdpNew) 
+		{
+			$this->mdp = $mdpNew;
+			$id = $this->id; 
+	    	mysqli_query($this->co, "UPDATE personne SET mdp='$mdpNew' WHERE idPersonne='$id'")
+				or die ("Erreur modification mdp par mdp actuel");
+			$_SESSION['mdp'] = $this->mdp;
 		}
 
 		public function connexion()

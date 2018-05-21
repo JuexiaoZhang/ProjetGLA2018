@@ -47,11 +47,10 @@
 <body link="#00486C" alink="#00486C" vlink="#00486C">
     <div class="bloc_page">
         <div class="texte">
-            <div>
                 <fieldset>
                     <legend>
                         <h2>Modifier vos informations personnells</h2></legend>
-                    <div class="connexion">
+                    <div >
                         <form method="post" action="../controler/controleur_user.php">
 
                             <br/>
@@ -70,12 +69,10 @@
                                         ?>">
                             <br/><br/>
                             <input type="submit" name="envoyer" value="ENVOYER" > 
-
-                            <button onclick="window.location='../view/vue_compte_user.php'" name="annuler"> ANNULER </button>
-                        </form>
-                            
+                        </form><br/>
+                        <button onclick="window.location='../view/vue_compte_user.php'" name="annuler"> ANNULER </button>
                     </div>
-            </div>
+                </fieldset>
         </div>
 </body>
 
