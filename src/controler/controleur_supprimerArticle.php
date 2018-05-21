@@ -15,14 +15,16 @@
 		$co= $bd->connexion();
 		$art= new Article($co,$idArt);
 
-		if ($art->supprimer()) {
-			header('Location:../view/gest_articles.php');
-		}else{
-			$_SESSION["erreurArticle"] = "Mot de passe erroné."; 
-			header('Location:../view/gest_articles.php');
+		// if ($art->supprimer()) {
+		// 	header('Location:../view/gest_articles.php');
+		// }else{
+		// 	$_SESSION["erreurArticle"] = "Mot de passe erroné."; 
+		// 	header('Location:../view/gest_articles.php');
 			
-		}
-		
+		// }
+
+		$art->supprimer($co);
+		header('Location:../view/gest_articles.php');
 		
 	}
 	// Si les champs n'ont pas été saisis
