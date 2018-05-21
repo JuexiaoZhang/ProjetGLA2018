@@ -3,33 +3,26 @@
 	session_start();
 
 	require_once("../model/bd.php");
-	require_once("../model/gestionnaire.php");
-	$_SESSION["erreurConnexion"] = "";
+	// require_once("../model/user.php");
+	//$_SESSION["erreurConnexion"] = "";
 	
-	// Si les champs ont bien été saisis
-	if (!empty($_POST["nom"]) && !empty($_POST["mdp"]))
-	{
-		$nom = $_POST["nom"];
-		$pwd = $_POST["mdp"];
-		
-		$bd = new Bd();
-		$co= $bd->connexion();
-		$m = new User($co,$nom);
-		
-		// Si le mot de passe est correct
-		if ($m->verif_pwd($pwd))
-		{
-			$m->connexion();
-			header('Location:controleur_typeUtilisateur.php');
-		}
-		// Si le mot de passe n'est pas correct
-		else 
-			header('Location:../view/vue_connexion.php');
-			echo $_SESSION["erreurConnexion"] = "Mot de passe erroné."; 
-	}
-	// Si les champs n'ont pas été saisis
-	else {
-		header('Location:../view/vue_connexion.php');
-		echo $_SESSION["erreurConnexion"] = "Tous les champs n'ont pas été saisis."; 
-	}
+	$bd = new Bd();
+	$co= $bd->connexion();
+
+	$_SESSION["co"] = $co; 
+
+	header('Location:../view/gest_infoUser.php'); 
+	
+
+
+
+	$req = "SELECT * FROM personne"; 
+	$res = mysqli_query($co, $req)
+		or die ("Erreur lors de l'obtention les données des utilisateurs.");
+
+	$row = mysqli_fetch_assoc($res);
+	
+						
+	
+	
 ?>	
