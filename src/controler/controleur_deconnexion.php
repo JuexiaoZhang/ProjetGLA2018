@@ -1,6 +1,6 @@
 <?php
-	require_once("../modeles/bd.php");
-	require_once("../modeles/user.php");
+	require_once("../model/bd.php");
+	require_once("../model/user.php");
 	
 	session_start();
 
@@ -12,6 +12,5 @@
 	
 	mysqli_close($co);
 	
-	header('Location:../vues/formulaire_connexion.php');
-	
-	?>	
+	header('Location:../view/vue_accueil.php');
+?>	

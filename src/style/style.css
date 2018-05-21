@@ -19,6 +19,20 @@
     ;
 }
 
+/*.monCompte img {
+    position: absolute;
+    top: 0%;
+    margin-left: 50%;
+    width: 180px;
+    ;
+}*/
+.deconnecter img {
+    position: absolute;
+    top: 100px;
+    margin-left: 80%;
+    width: 180px;
+}
+
 .upsudLogo img {
     position: absolute;
     top: 5%;

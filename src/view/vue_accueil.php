@@ -63,9 +63,41 @@
     <div class="seConnecter1">
         <img src="../image/seConnecter1.jpg" />
     </div>
-    <div class="seConnecter2">
-        <a href="../view/vue_connexion.php"><img src="../image/seConnecter2.jpg"/></a>
-    </div>
+
+<?php
+    if (isset($_SESSION["id"])){
+
+        if ($_SESSION["type"]=="utilisateur") {
+            echo "
+                <div class=\"seConnecter2\">
+                    <a href=\"../view/vue_compte_user.php\"><img src=\"../image/monCompte.jpg\"/></a>
+                </div>
+                ";
+
+        }else{
+            echo "
+                <div class=\"seConnecter2\">
+                    <a href=\"../view/vue_compte_gest.php\"><img src=\"../image/monCompte.jpg\"/></a>
+                </div>
+                ";
+        }
+        
+        echo "
+            <div class=\"deconnecter\" style=\"position: absolute; margin-left: 42%; height: 30px; width: 180px;\">
+                <a href=\"../controler/controleur_deconnexion.php\"><img src=\"../image/deconnecter.jpg\"/></a>
+            </div>
+        ";
+
+    }else{
+        echo "
+        <div class=\"seConnecter2\"  >
+            <a href=\"../view/vue_connexion.php\"><img src=\"../image/seConnecter2.jpg\"/></a>
+        </div>
+        ";
+    }
+    
+?>
+
     <div class="titre">
         <a href="../view/vue_accueil.php"><img src="../image/bg.jpg" alt = "titre"/></a>
     </div>
