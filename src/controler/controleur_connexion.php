@@ -20,7 +20,7 @@
 		if ($m->verif_pwd($pwd))
 		{
 			$m->connexion();
-			header('Location:controleur_typeUtilisateur.php');
+			header('Location:../view/vue_accueil.php');
 		}
 		// Si le mot de passe n'est pas correct
 		else 
