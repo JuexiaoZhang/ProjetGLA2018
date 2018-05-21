@@ -113,7 +113,7 @@
             <?php echo $_SESSION["nom"]." ".$_SESSION["prenom"] ?> <br/>
         </h2>
         <br/>
-        <a href="../view/vue_compte_gest.php">Mes données </a>
+        <a href="../view/vue_compte_gest.php">Mes données personnelles</a>
         <br/>
         <a href="../view/gest_infoUser.php">Données d'utilisateurs </a>
         <br/>

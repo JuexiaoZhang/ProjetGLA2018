@@ -130,11 +130,24 @@
     </div>
     <div id="section">
         <h2>Mes données personnelles</h2>
-        <p> Id : <?php echo $_SESSION["id"] ?> </p>
-        <p> Email : <?php echo $_SESSION["email"] ?></p>
-        <p> Nom : <?php echo $_SESSION["nom"] ?> </p>
-        <p> Prenom : <?php echo $_SESSION["prenom"] ?></p>
-        </p>
+        <table style="width:100%">
+            <tr>
+                <th>Id :</th>
+                <td><?php echo $_SESSION["id"] ?></td> 
+            </tr>
+            <tr>
+                <th>Email :</th>
+                <td><?php echo $_SESSION["email"] ?></td> 
+            </tr>
+            <tr>
+                <th>Nom :</th>
+                <td><?php echo $_SESSION["nom"] ?></td> 
+            </tr>
+            <tr>
+                <th>Prénom :</th>
+                <td><?php echo $_SESSION["prenom"] ?></td> 
+            </tr>
+        </table>
     </div>
 </body>
 

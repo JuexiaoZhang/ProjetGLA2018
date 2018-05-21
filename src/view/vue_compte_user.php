@@ -114,6 +114,7 @@
     </div>
     <div id="section">
         <h2>Mes données personnelles</h2>
+        
         <p> Id : <?php echo $_SESSION["id"] ?> </p>
         <p> Email : <?php echo $_SESSION["email"] ?></p>
         <p> Portable : pas encore definit</p>
