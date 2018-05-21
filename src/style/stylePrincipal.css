@@ -78,4 +78,22 @@ input[type=submit], input[type=reset] {
 	/*font-family: Calibri;*/
 	font-size: 20px;
 	color: #FFFFFF;
- }
+}
+
+#button {
+	width:100px;
+	margin-left:5px;
+	 
+	background-color: #00486C;
+	padding: 3px;
+	border:1px solid #AADAEF;
+	border-radius:5px;
+	box-shadow:1px 1px 1px #00486C;
+	cursor:pointer;
+	 
+	/*font-family: Calibri;*/
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+

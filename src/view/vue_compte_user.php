@@ -130,7 +130,7 @@
         <br/>
         
         <p> Je souhaite modifier mes données personnelles, mes préférences de communication, mon mot de passe... </p>
-        <button> Modifier </button>
+        <button onclick="window.open('../view/gest_modifierUtilisateur.php')"> Modifier </button><br/> <br/> 
     </div>
 </body>
 
