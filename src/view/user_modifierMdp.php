@@ -67,6 +67,14 @@
                 <br/>
                 <button onclick="window.location='../view/vue_compte_user.php'" name="annuler"> ANNULER </button>
             </fieldset>
+
+            <br> <br>
+            <legend> 
+                *Si vous avez oublié votre mot de passe actuel, veuillez nous contacter par mail ou par téléphone. 
+                <p> E-mail : shuangyi.zhao@u-psud.fr </p>
+                <p> Téléphone : 06 11 11 11 11 </p>
+            </legend>
+
         </div>
 </body>
 
