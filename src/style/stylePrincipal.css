@@ -56,7 +56,7 @@ fieldset {
 /* Champs du formulaire */
 
 input, textarea, select {
-	padding:3px;
+	padding:8px;
 	border:1px solid #AADAEF;
 	border-radius:5px;
 	box-shadow:1px 1px 2px #C0C0C0 inset;
