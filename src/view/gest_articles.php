@@ -3,7 +3,8 @@
     if (!isset($_SESSION["id"]))
         header('Location: vue_connexion.php');
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- html5 -->
+
 <html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -71,7 +72,7 @@
     #navigation {
         line-height: 30px;
         background-color: #eeeeee;
-        height: 900px;
+        height: 1500px;
         width: 240px;
         float: left;
         padding: 5px;
@@ -93,6 +94,71 @@
         text-decoration: underline;
         /*鼠标放上去有下划线*/
     }
+
+    fieldset {
+        margin: auto;
+        padding: 20px;
+        border:1px solid #00486C;
+        width:100%;
+    }
+
+    input[type=text],select,textarea {
+        width: 200px;
+        height: 25px;
+        padding:3px;
+        border:1px solid #AADAEF;
+        border-radius:5px;
+        box-shadow:1px 1px 2px #C0C0C0 inset;
+        color: gray;
+        background-color: #eeeeee;
+    }
+
+    textarea {
+        width: 400px;
+        height: 100px;
+        padding:3px;
+        border:1px solid #AADAEF;
+        border-radius:5px;
+        box-shadow:1px 1px 2px #C0C0C0 inset;
+     /*   color: gray;*/
+        background-color: #eeeeee;
+    }
+
+    input[type=submit] {
+        width:100px;
+        height: 35px;
+        margin-left:5px;
+         
+        background-color: #00486C;
+        padding: 3px;
+        border:1px;
+        border-radius:5px;
+        box-shadow:1px 1px 1px #00486C;
+       
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+    input.chercher {
+         width: 480px;
+        height: 50px;
+        background-color: white;
+        border: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        font-style: italic;
+    }
+    input.date{
+        width: 40px;
+        height: 25px;
+        padding:3px;
+        border:1px solid #AADAEF;
+        border-radius:5px;
+        box-shadow:1px 1px 2px #C0C0C0 inset;
+        color: gray;
+        background-color: #eeeeee;
+    }
+
     </style>
 </head>
 
@@ -104,7 +170,7 @@
         <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
         <form>
-            <input type="text" name="recherche" value="Chercher un article..." />
+            <input class="chercher" type="text" name="recherche" value="Chercher un article..." />
             <button> CHERCHER </button>
         </form>
     </div>
@@ -131,20 +197,134 @@
     </div>
     <div id="section">
         <h2>Opération</h2>
-        <input class="operation" type="text" value="id d'article à supprimer" />
-        <button> Supprimer </button>
+
+        <div > <fieldset>
+            <legend> <h3>Ajouter un article </h3></legend>
+            <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurArticle"])){ echo $_SESSION["erreurArticle"]; }?>
+            </div>
+            <form method="post" action="../controler/controleur_ajouterArticle.php">
+                <label for="type"> Type :  </label>
+                    <select name="type">
+                        <option value="livre"> livre </option>
+                        <option value="album"> album </option>
+                        <option value="video"> vedio </option>
+                    </select>
+                <br/>
+                <br/>
+                <br/>
+                <label for="titre"> Titre :  </label>
+                    <input type="text" name="titre" id="titre" />
+                <br/>
+                <br/>
+                <label for="auteur"> Auteur :  </label>
+                    <input type="text" name="auteur" id="auteur" />
+                <br/>
+                <br/>
+                <label for="datePublication"> Date de publication :  </label>
+                   
+                    <input class="date" type="text" name="dateDay" id="dateDay" />
+                    -
+                    <input class="date" type="text" name="dateMonth" id="dateMonth" />
+                    -
+                    <input class="date" type="text" name="dateYear" id="dateYear" />
+                     (Jour - Moi - Année)
+                <br/>
+                <br/>
+
+                <label for="urlPhoto"> URL de photo couverture :  </label>
+                    <input type="text" name="urlPhoto" id="urlPhoto" />
+                <br/>
+                <br/>
+
+                <label for="frais"> Frais d'emprunt : </label>
+                    <input type="text" name="frais" id="frais"/>
+                <br/>
+                <br/>
+
+                <label for="caution"> Caution : </label>
+                    <input type="text" name="caution" id="caution"  />
+                <br/>
+                <br/>
+
+                <label for="description"> Description : </label>
+                    <br/>
+                    <textarea name="description" id="description" row="40" cols="50"> </textarea> <br/>
+                <br/>
+                <br/>
+
+                <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
+                <input type="submit" name ="ajouter" value="Ajouter">
+            </form>
+           
+        </div>
         <br/>
         <br/>
-        <input class="operation" type="text" value="id d'article à modifier" />
-        <button onclick="window.open('../vue/gestionnaireModifierArticle.html')"> Modifier </button>
+
+        <div > <fieldset>
+            <legend> <h3>Supprimer un article </h3></legend>
+            <form method="post" action="../controler/controleur_article.php">
+                <input class="operation" type="text" name="idArt" id="idArt" value="id d'article à supprimer" />
+                <input type="submit" value="Supprimer">
+            </form>
+           
+        </div>
         <br/>
         <br/>
-        <input class="operation" type="text" value="nom d'article à ajouter" />
-        <button onclick="window.open('../vue/gestionnaireAjouterArticle.html')"> Ajouter </button>
+        <div > <fieldset>
+            <legend> <h3>Modifier un article </h3></legend>
+            <form method="post" action="../controler/controleur_article.php">
+                <label for="idArt"> ID :  </label>
+                    <select name="type">
+                        <option value="livre"> à modifier </option>
+                        <option value="album"> album </option>
+                        <option value="video"> vedio </option>
+                    </select>
+                <br/>
+                <br/>
+                <label for="titre"> Titre :  </label>
+                    <input type="text" name="titre" id="titre" value="à motifier ici" />
+                <br/>
+                <br/>
+                <label for="auteur"> Auteur :  </label>
+                    <input type="text" name="auteur" id="auteur" value="à motifier ici" />
+                <br/>
+                <br/>
+                <label for="datePublication"> Date de publication :  </label>
+                    <input type="text" name="datePublication" id="datePublication" value="à motifier ici" />
+                <br/>
+                <br/>
+
+                <label for="urlPhoto"> URL de photo couverture :  </label>
+                    <input type="text" name="urlPhoto" id="urlPhoto" value="à motifier ici" />
+                <br/>
+                <br/>
+
+                <label for="frais"> Frais d'emprunt : </label>
+                    <input type="text" name="frais" id="frais" value="à motifier ici" />
+                <br/>
+                <br/>
+
+                <label for="caution"> Caution : </label>
+                    <input type="text" name="caution" id="caution" value="à motifier ici" />
+                <br/>
+                <br/>
+
+                <label for="description"> Description : </label>
+                    <br/>
+                    <textarea name="description" id="description" row="40" cols="50"> </textarea> <br/>
+                <br/>
+                <br/>
+
+                <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
+                <input type="submit" value="Modifier">
+            </form>
+           
+        </div>
+
         <br/>
         <br/>
-        <h2>Les articles</h2>
     </div>
 </body>
-
 </html>
+<?php unset($_SESSION["erreurArticle"]); ?>
