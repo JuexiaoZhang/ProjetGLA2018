@@ -147,6 +147,10 @@
                 <th>Prénom :</th>
                 <td><?php echo $_SESSION["prenom"] ?></td> 
             </tr>
+            <tr>
+                <th>Type :</th>
+                <td><?php echo $_SESSION["type"] ?></td> 
+            </tr>
         </table>
     </div>
 </body>
