@@ -26,7 +26,7 @@
 					$row = mysqli_fetch_assoc($res);
 					if (!$row) {
 						header('Location:../view/gest_articles.php');
-						echo $_SESSION["erreurArticle"] = "L'article n'existe pas"; 
+						echo $_SESSION["erreurSpArticle"] = "L'article n'existe pas"; 
 						die();
 					}else{
 

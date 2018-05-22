@@ -4,7 +4,7 @@
 
 	require_once("../model/bd.php");
 	require_once("../model/article.php");
-	$_SESSION["erreurArticle"] = "";
+	$_SESSION["erreurSpArticle"] = "";
 	
 	// Si les champs ont bien été saisis
 	if (!empty($_POST["idArt"]))
@@ -15,14 +15,6 @@
 		$co= $bd->connexion();
 		$art= new Article($co,$idArt);
 
-		// if ($art->supprimer()) {
-		// 	header('Location:../view/gest_articles.php');
-		// }else{
-		// 	$_SESSION["erreurArticle"] = "Mot de passe erroné."; 
-		// 	header('Location:../view/gest_articles.php');
-			
-		// }
-
 		$art->supprimer($co);
 		header('Location:../view/gest_articles.php');
 		
@@ -30,6 +22,6 @@
 	// Si les champs n'ont pas été saisis
 	else {
 		header('Location:../view/gest_articles.php');
-		echo $_SESSION["erreurArticle"] = "Veuille remplir tout les champs, svp."; 
+		echo $_SESSION["erreurSpArticle"] = "Veuille saisir un id article, svp."; 
 	}
 	?>	
