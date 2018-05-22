@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -39,7 +43,7 @@
         font-weight: bold;
     }
     /*使用伪类来添加三角符号*/
-    /*    button:before {
+/*        button:before {
         content: "";
         border-width: 6px;
         border-style: solid;
@@ -48,6 +52,18 @@
         right: 100%;
         top: 38%;
     }*/
+
+    button.emprunter {
+
+        width: 140px;
+        height: 50px;
+        background-color: #00486C;
+        color: #fff;
+        border-radius: 5px;
+        position: relative;
+        font-size: 18px;
+        font-weight: bold;
+    }
 
     a:link,
     a:visited {
@@ -75,44 +91,108 @@
 </head>
 
 <body link="#00486C" alink="#00486C" vlink="#00486C">
+
     <div class="seConnecter1">
         <img src="../image/seConnecter1.jpg" />
+    </div> 
+
+<?php
+    if (isset($_SESSION["id"])){
+
+        if ($_SESSION["type"]=="utilisateur") {
+            echo "
+                <div class=\"monCompte\">
+                    <a href=\"../view/vue_compte_user.php\"><img src=\"../image/monCompte.jpg\"/></a>
+                </div>
+                ";
+
+        }else{
+            echo "
+                <div class=\"monCompte\">
+                    <a href=\"../view/vue_compte_gest.php\"><img src=\"../image/monCompte.jpg\"/></a>
+                </div>
+                ";
+        }
+        // style=\"position: absolute; margin-left: 60%; height: 30px; width: 180px;
+        echo "
+            <div class=\"deconnecter\" \">
+                <a href=\"../controler/controleur_deconnexion.php\"><img src=\"../image/deconnecter.jpg\"/></a>
+            </div>
+        ";
+
+    }else{
+        echo "
+        <div class=\"seConnecter2\"  >
+            <a href=\"../view/vue_connexion.php\"><img src=\"../image/seConnecter2.jpg\"/></a>
+        </div>
+        ";
+    }
+    
+?> 
+
+   <!--  <div class="titre">
+        <a href="../view/vue_accueil.php"><img src="../image/bg.jpg" alt = "titre"/></a>
     </div>
-    <div class="seConnecter2">
-        <a href="../vue/seConnecter.html"><img src="../image/seConnecter2.jpg"/></a>
-    </div>
+    <br /> <br /> -->
+   
+
     <div class="upsudLogo">
-        <a href="../vue/accueil.html"><img src="../image/upsudLogo.png"/></a>
+        <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
-        <a href="../vue/accueil.html">
+        <br><br><br>
+        <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form >
+<!--         <form >
             <input type="text" name="recherche" value="Chercher un article..." />
             <button> CHERCHER </button>
-        </form>
+        </form> -->
     </div>
+
+
     
-    <p> Accueil - Article </p>
-    <h2> Une fille comme elle </h2>
-    <p> Marc Levy(Auteur) - Paru le mai 2018 - Roman</p>
+    <p style="color: gray;"> Accueil - Article </p>
+
+    <h2> <?php if (isset($_SESSION['titreAff'])) {
+        echo $_SESSION['titreAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?> </h2>
+
+    <p> <?php if (isset($_SESSION['auteurAff'])) {
+        echo $_SESSION['auteurAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?>(Auteur) - Paru <?php if (isset($_SESSION['datePublicationAff'])) {
+        echo $_SESSION['datePublicationAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?> - <?php if (isset($_SESSION['typeAff'])) {
+        echo $_SESSION['typeAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?></p>
     <div class="infoArticle">
-        <img src="../image/uneFilleCommeElle.jpg" style="display: block; margin:auto; width: 200px; height: 321px; " />
-        <h3> Détails produits</h3>
-        <p> Date de parution : blabla</p>
-        <p> Editeur : blabla </p>
+        <img src="<?php if (isset($_SESSION['photoAff'])) {
+        echo $_SESSION['photoAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?>" style="display: block; margin:auto; width: 200px; height: 321px; " />
+        <h3> Détails </h3>
+        <p> Date de parution : <?php if (isset($_SESSION['datePublicationAff'])) {
+        echo $_SESSION['datePublicationAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?></p>
+        <p> Editeur : <?php if (isset($_SESSION['auteurAff'])) {
+        echo $_SESSION['auteurAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?> </p>
         <br/>
         <h3> Résumé </h4>
-    	<p> « Quelle distance nous sépare, un océan et deux continents ou huit étages ? — Ne soyez pas blessant, vous croyez qu’une fille comme moi… — Je n’ai jamais rencontré une femme comme vous. — Vous disiez me connaître à peine. — Il y a tellement de gens qui se ratent pour de mauvaises raisons. Quel risque y a-t-il à voler un peu de bonheur ? » New York, sur la 5e Avenue, s’élève un petit immeuble pas tout à fait comme les autres… Ses habitants sont très attachés à leur liftier, Deepak, chargé de faire fonctionner l’ascenseur mécanique, une véritable antiquité. Mais la vie de la joyeuse communauté se trouve chamboulée lorsque son collègue de nuit tombe dans l’escalier. Quand Sanji, le mystérieux neveu de Deepak, débarque en sauveur et endosse le costume de liftier, personne ne peut imaginer qu’il est à la tête d’une immense fortune à Bombay… Et encore moins Chloé, l’habitante du dernier étage. Entrez au N°12, Cinquième Avenue, traversez le hall, montez à bord de son antique ascenseur et demandez au liftier de vous embarquer… dans la plus délicieuse des comédies new-yorkaises ! </p>
+    	<p> <?php if (isset($_SESSION['descriptionAff'])) {
+        echo $_SESSION['descriptionAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?> </p>
     </div>
 
     <div class="espace"> </div>
 
     <div class="emprunterReserver">
-    	<p> <b>Frais d'emprunt : </b></p>
-    	<p> <b>Frais de réservation : </b></p>
-        <p> <b>Caution : </b></p>
-    	<button style="display: block; margin:auto;"> EMPRUNTER </button>
+    	<p> <b>Frais d'emprunt : </b> <?php if (isset($_SESSION['fraisEmrpuntAff'])) {
+        echo $_SESSION['fraisEmrpuntAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?></p>
+    	<p> <b>Frais de réservation : </b> graduit</p>
+        <p> <b>Caution : </b><?php if (isset($_SESSION['cautionAff'])) {
+        echo $_SESSION['cautionAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
+    ?></p>
+    	<button class="emprunter" style="display: block; margin:auto;"> EMPRUNTER </button>
     	<br/>
     </div>
 
