@@ -268,9 +268,6 @@
         <input class="operation" type="text" value="email d'utilisateur à modifier" />
         <button onclick="window.open('../vue/gestionnaireModifierUtilisateur.html')"> Modifier </button><br/> <br/> 
         
-        <input class="operation" type="text" value="email d'utilisateur à valider" />
-        <button> Valider </button> <br/> <br/>
-
         
     </div>
 </body>

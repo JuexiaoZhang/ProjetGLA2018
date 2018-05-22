@@ -30,9 +30,12 @@
         				 <td>".$row[0]."</td>".
         				"<td>".$row[2]."</td>".
         				"<td>".$row[3]."</td>".
-        				"<td>".$row[4]."</td>".
-        				"<td>".$row[5]."</td>".
-        				"<td>".$row[7]."</td>".
+        				"<td>".$row[4]."</td>";
+        if ($row[5]==1) {
+            $listInfoUser = $listInfoUser."<td>Validé</td>";
+        }else
+            $listInfoUser = $listInfoUser."<td>Non Validé</td>";
+        $listInfoUser = $listInfoUser."<td>".$row[7]."</td>".
         				"<td>".$row[8]."</td> </tr>";
     }
 
