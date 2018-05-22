@@ -97,13 +97,9 @@
         <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
+        <br><br><br>
         <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
-            <input type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER
-            </button>
-        </form>
     </div>
     <div id="navigation">
         <h2> 
@@ -127,7 +123,9 @@
                 header('Location:../controler/controleur_userConsultEmprunts.php');
             else
                 echo $_SESSION["mesEmprunts"];
-        ?> 
+        ?> <br> <br>
+
+        <p>*Vous devez rendre votre article au plus tard 15 jours après l'empruntation. </p>
     </div>
 </body>
 

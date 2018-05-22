@@ -168,12 +168,9 @@
         <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
+        <br><br><br>
         <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
-            <input class="chercher" type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER </button>
-        </form>
     </div>
     <div id="navigation">
         <h2> 

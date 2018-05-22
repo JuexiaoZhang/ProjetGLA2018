@@ -189,6 +189,11 @@
 			session_destroy();
 			mysqli_close($this->co);
 		}
+
+		public function annulerReservation($idRservation) {
+			mysqli_query($this->co, "DELETE FROM reservation WHERE idReservation=$idRservation")
+				or die ("Erreur annulation sa reservation");
+		}
 	}
 ?>
 

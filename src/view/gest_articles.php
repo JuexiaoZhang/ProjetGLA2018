@@ -63,18 +63,6 @@
         font-size: 18px;
         font-weight: bold;
     }
-    /*使用伪类来添加三角符号*/
-
-    button:before {
-        content: "";
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent #00486C transparent transparent;
-        position: absolute;
-        right: 100%;
-        top: 38%;
-    }
-
 
     #navigation {
         line-height: 30px;
@@ -174,12 +162,9 @@
         <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
+        <br><br><br>
         <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
-            <input class="chercher" type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER </button>
-        </form>
     </div>
     <div id="navigation">
         <h2> 
@@ -270,6 +255,7 @@
                 <br/>
                 <br/>
 
+                <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
                 <input type="submit" name ="ajouter" value="Ajouter">
             </form>
            

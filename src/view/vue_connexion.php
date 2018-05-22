@@ -52,7 +52,7 @@
 			<div class = "mdpoublier">
 				<p>
 					Vous avez oublié votre mot de passe?
-					<a href = "vue_inscription.php"> Cliquez ici </a>
+					<a href = "user_modifierMdp.php"> Cliquez ici </a>
 				</p>
 			</div>
 
