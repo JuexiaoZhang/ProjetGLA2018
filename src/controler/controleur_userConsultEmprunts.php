@@ -20,7 +20,7 @@
     $mesEmprunts = "<table border=\"1\">
             <tr>
                 <th>IdEmprunt</th>
-                <th>TitreArticle<th>
+                <th>TitreArticle</th>
                 <th>DateEmprunt</th>
             </tr>";
 
