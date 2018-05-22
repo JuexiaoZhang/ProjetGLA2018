@@ -73,6 +73,9 @@
                     header('Location:../view/vue_article.php');
                     die();
                 }
+                $idEmprunt = mysqli_insert_id($co);
+                //$_SESSION['idEmprunt'] = $idEmprunt; 
+
 
                 //update exemplaire.empDispo
                 $sql = "UPDATE exemplaire SET empDispo=0 WHERE idExemplaire =".$idExemplaire;
@@ -89,14 +92,31 @@
                     header('Location:../view/vue_article.php');   
                     die();
                 } 
-
+                $_SESSION['erreurEmpCon'] = "Bien emprunter, Votre numéro d'emprunt est ".$idEmprunt;
                 header('Location:../view/vue_article.php'); 
             }else{
 
-                //reserver 
-                //看user是不是已经reserver了
+                //utilisateur est déjà reserver cette article?
+                $sql = "SELECT idReservation FROM reservation WHERE idArticle =".$idArticle." and idUtilisateur =".$idUser;
+                $res = mysqli_query($co, $sql);
+                $row = mysqli_fetch_row($res);
+                $idReservation = $row[0];
+                if($idReservation>=1){    
+                    $_SESSION['erreurEmpCon'] = "Vous avez déjà reservé cette article";
+                    header('Location:../view/vue_article.php');   
+                    die();
+                }else{
+                    //sinon le réserver
+                    $sql = "INSERT INTO reservation(dateReservation, idUtilisateur, idArticle, disponible, nbExDisponible) VALUES (CURRENT_TIMESTAMP,".$idUser.",".$idArticle.",0,0)";
+                    if(!mysqli_query($co, $sql)){
+                        $_SESSION['erreurEmpCon'] = "erruer : insert reservation ";
+                        header('Location:../view/vue_article.php');
+                        die();
+                    }
+                    $idReservation = mysqli_insert_id($co);
+                }
 
-                $_SESSION['erreurEmpCon'] = "faut reserver";
+                $_SESSION['erreurEmpCon'] = "Il y a plus d'exemplaire. Votre demande est bien reservé, Votre numéro de reservation est ".$idReservation;
                 header('Location:../view/vue_article.php');
 
             }
