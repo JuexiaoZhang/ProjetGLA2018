@@ -2,6 +2,7 @@
     
     session_start();
     ob_start();
+    require_once("../model/bd.php");
     if (!isset($_SESSION["id"])){
         header('Location: vue_connexion.php');
     }
@@ -13,6 +14,7 @@
 <html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <!-- <script src="../js/selectuser.js"></script> -->
     <link rel="stylesheet" href="../style/style.css" />
     <title> GestionnaireArticle </title>
     <meta charset="UTF-8">
@@ -289,52 +291,65 @@
         </div>
         <br/>
         <br/>
-        <div > <fieldset>
+        <div> <fieldset>
             <legend> <h3>Modifier un article </h3></legend>
-            <form method="post" action="../controler/controleur_article.php">
+            <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurMdArticle"])){ echo $_SESSION["erreurMdArticle"]; }?>
+            </div>
+            <form method="post" action="../controler/controleur_modifierArticle.php">
                 <label for="idArt"> ID :  </label>
-                    <select name="type">
-                        <option value="livre"> à modifier </option>
-                        <option value="album"> album </option>
-                        <option value="video"> vedio </option>
+                <?php 
+                $bd = new Bd();
+                $co= $bd->connexion();
+
+                $req = "SELECT idArticle FROM article"; 
+    
+                $res = mysqli_query($co, $req)
+                    or die ("Erreur : SELECT idArticle FROM article ");
+                //mysql_close($co);
+                 ?>
+                   <!--  <select name="idArt" onchange="showUser(this.value)"> -->
+                    <select name="idArt">
+                    
+                        <?php 
+                        while ($row = mysqli_fetch_row($res)) {
+                        ?>
+                        <option value="<?php echo $row[0];?>"><?php echo $row[0];?> </option>
+                        <?php
+                        }
+                         ?>
                     </select>
                 <br/>
                 <br/>
-                <label for="titre"> Titre :  </label>
-                    <input type="text" name="titre" id="titre" value="à motifier ici" />
-                <br/>
-                <br/>
-                <label for="auteur"> Auteur :  </label>
-                    <input type="text" name="auteur" id="auteur" value="à motifier ici" />
-                <br/>
-                <br/>
-                <label for="datePublication"> Date de publication :  </label>
-                    <input type="text" name="datePublication" id="datePublication" value="à motifier ici" />
+
+<!--             </form>
+            <select name="idArt" onchange="showUser(this.value)">
+                
+                <option value="1">1 </option> 
+                <option value="7">7 </option>
+            </select>  
+                <div id="txtHint"> <b>User info will be listed here.</b></div>
+                </div> -->
+
+               <label for="title"> Donnée à modifier :  </label>
+                    <select name="title" >
+                        <option value="titre">Titre</option>
+                        <option value="auteur">Auteur</option>
+                        <option value="datePublication">Date de publication</option>
+                        <option value="photo">URL photo</option>
+                        <option value="fraisEmprunt">Frais</option>
+                        <option value="caution">Caution</option>
+                        <option value="description">Description</option>
+                    </select>
                 <br/>
                 <br/>
 
-                <label for="urlPhoto"> URL de photo couverture :  </label>
-                    <input type="text" name="urlPhoto" id="urlPhoto" value="à motifier ici" />
+
+                <label for="donnee"> Nouvelle donnée :  </label>
+                    <input type="text" name="donnee" id="donnee" />
                 <br/>
                 <br/>
 
-                <label for="frais"> Frais d'emprunt : </label>
-                    <input type="text" name="frais" id="frais" value="à motifier ici" />
-                <br/>
-                <br/>
-
-                <label for="caution"> Caution : </label>
-                    <input type="text" name="caution" id="caution" value="à motifier ici" />
-                <br/>
-                <br/>
-
-                <label for="description"> Description : </label>
-                    <br/>
-                    <textarea name="description" id="description" row="40" cols="50"> </textarea> <br/>
-                <br/>
-                <br/>
-
-                <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
                 <input type="submit" value="Modifier">
             </form>
            
@@ -347,4 +362,5 @@
 </html>
 <?php unset($_SESSION["erreurArticle"]); 
 unset($_SESSION["erreurSpArticle"]); 
+unset($_SESSION["erreurMdArticle"]); 
 unset($_SESSION["listArticle"]);?>

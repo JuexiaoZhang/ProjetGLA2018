@@ -84,6 +84,13 @@
 			$res = mysqli_query($co, $req)
 				or die ("Erreur lors de supprimer");
 		}
+		public function update($co,$title,$donnee)
+		{
+			$req = "UPDATE article SET ".$title."=".$donnee." WHERE idArticle={$this->id}";
+			if (mysqli_query($co, $req)) {
+				return true;
+			}else return false;	
+		}
 
 	}
 ?>
