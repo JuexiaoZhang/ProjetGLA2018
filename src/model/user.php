@@ -47,9 +47,34 @@
 						$this->finance = $row["finance"];
 					}
 					break;
+				//cherche un user par id
+				case 3:
+					$this->co = $args[0];
+					$this->id = $args[1];
+					$res = mysqli_query($this->co, "SELECT idPersonne, mdp, email, prenom,nom,estValide,type,caution,finance
+													FROM personne
+													WHERE idPersonne = '{$this->id}'");
+
+					$row = mysqli_fetch_assoc($res);
+					if (!$row) {
+						header('Location:../view/gest_infoUser.php');
+						//echo $_SESSION["erreurSpUser"] = "L'utilisateur n'existe pas"; 
+						die();
+					}else{
+						$this->mdp = $row["mdp"];
+						$this->email = $row["email"];
+						$this->prenom = $row["prenom"];
+						$this->nom = $row["nom"];
+						$this->type = $row["type"];
+						$this->estValide = $row["estValide"];
+						//$this->portable = $row["portable"];
+						$this->caution = $row["caution"];
+						$this->finance = $row["finance"];
+					}
+					
+					break;
 
 				//ajouter un utilisateur par gestionnaire
-
 				case 4 :
 					$co = $args[0];
 					$nom = $args[1];
@@ -97,18 +122,24 @@
 			}
 		}
 
+		public function valider($co)
+		{
+			$req = "UPDATE personne SET estValide=1 WHERE idPersonne={$this->id}";
+			$res = mysqli_query($co, $req)
+				or die ("Erreur lors de valider");
+		}
+
+		public function supprimer($co)
+		{
+			$req = "DELETE FROM personne WHERE idPersonne={$this->id}";
+			$res = mysqli_query($co, $req)
+				or die ("Erreur lors de supprimer");
+		}
+
 		public function verif_pwd($pwd)
 		{
 			echo $this->mdp;
 			return $pwd == $this->mdp;
-		}
-
-		public function modif_mdp($mdp)
-		{
-			$id = $this->id;
-			$this->mdp = $mdp;
-			mysqli_query($co, "UPDATE Utilisateur SET Mdp='$mdp' WHERE id='$id'")
-			or die ("Erreur modification mot de passe");
 		}
 
 		public function modif_infoPersoNom($nom)

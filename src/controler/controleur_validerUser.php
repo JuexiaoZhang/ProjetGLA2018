@@ -16,13 +16,13 @@
 		$sup = "";
 		$art= new User($co,$idUser,$sup);
 
-		$art->supprimer($co);
+		$art->valider($co);
 		header('Location:../view/gest_infoUser.php');
 		
 	}
 	// Si les champs n'ont pas été saisis
 	else {
 		header('Location:../view/gest_infoUser.php');
-		echo $_SESSION["erreurSpUser"] = "Veuillez remplir le champs, svp."; 
+		//echo $_SESSION["erreurSpUser"] = "Veuillez remplir le champs, svp."; 
 	}
 	?>	

@@ -3,6 +3,7 @@
     ob_start();
     if (!isset($_SESSION["id"]))
         header('Location: vue_connexion.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -239,15 +240,30 @@
         <div > <fieldset>
             <legend> <h3>Supprimer un article </h3></legend>
             <form method="post" action="../controler/controleur_supprimerUser.php">
+                Veuillez saisir un id d'utilisateur :
+                <br/>
+                <br/>
+                <div style="color: red;font-size: 14px;">
                 <?php if(isset($_SESSION["erreurSpUser"]))echo $_SESSION["erreurSpUser"]; ?>
-                <input class="operation" type="text" name="idUser" id="idUser" value="id d'utilisateur à supprimer" />
+                </div>
+                <input class="operation" type="text" name="idUser" id="idUser" />
                 <input type="submit" value="Supprimer">
             </form> 
         </div>
-
         <br/>
         <br/>
-
+        <div > <fieldset>
+            <legend> <h3>Valider une inscription </h3></legend>
+            <form method="post" action="../controler/controleur_validerUser.php">
+                Veuillez saisir un id d'utilisateur :
+                <br/>
+                <br/>
+                <input class="operation" type="text" name="idUser" id="idUser" />
+                <input type="submit" value="Valider">
+            </form> 
+        </div>
+        <br/>
+        <br/>
 
         <input class="operation" type="text" value="email d'utilisateur à modifier" />
         <button onclick="window.open('../vue/gestionnaireModifierUtilisateur.html')"> Modifier </button><br/> <br/> 
