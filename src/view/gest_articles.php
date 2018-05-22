@@ -207,7 +207,7 @@
         <?php
             if(!isset($_SESSION["listArticle"])){
                 header('Location:../controler/controleur_articleList.php');
-               
+                die();
             }
             else
                 echo $_SESSION["listArticle"];
