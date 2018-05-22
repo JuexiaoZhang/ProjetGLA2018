@@ -8,7 +8,7 @@
 
 <head>
     <link rel="stylesheet" href="../style/style.css" />
-    <title> GestionnaireEmprunt </title>
+    <title> GestionnaireEmprunts </title>
     <meta charset="UTF-8">
     <style>
     #header {
@@ -126,13 +126,44 @@
     </div>
     <div id="section">
         <h2>Opération</h2>  
-        <input class="operation" type="text" name="recherche" value="id d'exemplaire retourné" />
-        <button> Retourner </button> <br/> <br/>        
+
+    <!--     <fieldset>
+            <legend> <h3>Supprimer un emprunt </h3></legend>
+            <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurExSup"])){ echo $_SESSION["erreurExSup"];}?>
+            </div>
+            <form method="post" action="../controler/controleur_suppEx.php">
+    
+                <label for="idEx"> ID Exemplaire :  </label>
+                    <input type="text" name="idEx" id="idEx" />
+                <br/>
+                <br/>
+
+                <input type="submit" name ="supprimer" value="Supprimer">
+            </form>
+        </div>
+    </fieldset> -->
+
         
         <h2>Les emprunts</h2> 
-
+        <?php
+            if(!isset($_SESSION["lesEmprunts"])){
+                header('Location:../controler/controleur_consultLesEmprunts.php');
+                die();
+            }
+            else
+                echo $_SESSION["lesEmprunts"];
+        ?>
 
     </div>
+
 </body>
 
 </html>
+
+<?php 
+unset($_SESSION["lesEmprunts"]);
+// unset($_SESSION["erreurEx"]);
+// unset($_SESSION["erreurSup"]);
+?>
+
