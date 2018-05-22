@@ -122,13 +122,15 @@
     </div>
     <div id="section">
         <h2>Mes emprunts</h2>
-        <p>
-            bla bla
-        </p>
-        <p>
-            bla bla
-        </p>
+        <?php
+            if(!isset($_SESSION["mesEmprunts"])) 
+                header('Location:../controler/controleur_userConsultEmprunts.php');
+            else
+                echo $_SESSION["mesEmprunts"];
+        ?> 
     </div>
 </body>
 
 </html>
+
+<?php unset($_SESSION["mesEmprunts"]);?>
