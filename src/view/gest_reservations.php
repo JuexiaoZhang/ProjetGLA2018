@@ -130,9 +130,24 @@
         
         <h2>Toutes les réservations</h2>  
 
-        
-        
+        <?php
+            if(!isset($_SESSION["lesReservations"])){
+                header('Location:../controler/controleur_consultLesRserv.php');
+                die();
+            }
+            else
+                echo $_SESSION["lesReservations"];
+        ?>
+
     </div>
+
 </body>
 
 </html>
+
+<?php 
+unset($_SESSION["lesReservations"]);
+// unset($_SESSION["erreurEx"]);
+// unset($_SESSION["erreurSup"]);
+?>
+
