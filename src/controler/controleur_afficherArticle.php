@@ -5,7 +5,7 @@
 	$coBd = new Bd();
 	$co = $coBd->connexion();
 
-	if(!empty($_POST['idArticle'])) {
+	if(empty($_GET['idArticle'])) {
 		header('Location:../view/vue_accueil.php'); 
 	} else {
         $idArticle = $_GET['idArticle'];

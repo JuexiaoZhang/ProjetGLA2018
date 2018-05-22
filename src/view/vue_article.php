@@ -64,6 +64,17 @@
         font-size: 18px;
         font-weight: bold;
     }
+    input.emprunter {
+
+        width: 140px;
+        height: 50px;
+        background-color: #00486C;
+        color: #fff;
+        border-radius: 5px;
+        position: relative;
+        font-size: 18px;
+        font-weight: bold;
+    }
 
     a:link,
     a:visited {
@@ -192,7 +203,15 @@
         <p> <b>Caution : </b><?php if (isset($_SESSION['cautionAff'])) {
         echo $_SESSION['cautionAff']; } else {header('Location:../controler/controleur_afficherArticle.php'); }
     ?></p>
-    	<button class="emprunter" style="display: block; margin:auto;"> EMPRUNTER </button>
+    	<!-- <button class="emprunter" style="display: block; margin:auto;" > EMPRUNTER </button> -->
+        <form method="post" action="../controler/controleur_emprunter.php">
+                <input class="emprunter" style="display: block; margin:auto;" type="submit" value="Emprunter">
+        </form>
+
+        <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurEmpCon"])){ echo $_SESSION["erreurEmpCon"]; }?>
+        </div>
+
     	<br/>
     </div>
 
@@ -201,3 +220,5 @@
 </body>
 
 </html>
+<?php unset($_SESSION["erreurEmpCon"]); 
+?>
