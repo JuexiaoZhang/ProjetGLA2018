@@ -270,7 +270,6 @@
                 <br/>
                 <br/>
 
-                <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
                 <input type="submit" name ="ajouter" value="Ajouter">
             </form>
            
