@@ -124,7 +124,7 @@
 
 		public function valider($co)
 		{
-			$req = "UPDATE personne SET estValide=1 WHERE idPersonne={$this->id}";
+			$req = "UPDATE personne SET estValide=1, caution=20 WHERE idPersonne={$this->id}";
 			$res = mysqli_query($co, $req)
 				or die ("Erreur lors de valider");
 		}
@@ -188,6 +188,11 @@
 		{
 			session_destroy();
 			mysqli_close($this->co);
+		}
+
+		public function annulerReservation($idRservation) {
+			mysqli_query($this->co, "DELETE FROM reservation WHERE idReservation=$idRservation")
+				or die ("Erreur annulation sa reservation");
 		}
 	}
 ?>

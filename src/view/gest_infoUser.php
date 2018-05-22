@@ -1,6 +1,7 @@
 <?php
     session_start();
     ob_start();
+    require_once("../model/bd.php");
     if (!isset($_SESSION["id"]))
         header('Location: vue_connexion.php');
 
@@ -168,12 +169,9 @@
         <a href="../view/vue_accueil.php"><img src="../image/upsudLogo.png"/></a>
     </div>
     <div id="header">
+        <br><br><br>
         <a href="../view/vue_accueil.php">
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
-            <input class="chercher" type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER </button>
-        </form>
     </div>
     <div id="navigation">
         <h2> 
@@ -234,11 +232,12 @@
                 <br/>
                 <input type="submit" name ="ajouter" value="Ajouter">
             </form>
+        </fieldset>
         </div>
         <br/>
         <br/>
         <div > <fieldset>
-            <legend> <h3>Supprimer un article </h3></legend>
+            <legend> <h3>Supprimer un utilisateur </h3></legend>
             <form method="post" action="../controler/controleur_supprimerUser.php">
                 Veuillez saisir un id d'utilisateur :
                 <br/>
@@ -249,6 +248,7 @@
                 <input class="operation" type="text" name="idUser" id="idUser" />
                 <input type="submit" value="Supprimer">
             </form> 
+        </fieldset>
         </div>
         <br/>
         <br/>
@@ -265,9 +265,58 @@
         <br/>
         <br/>
 
-        <input class="operation" type="text" value="email d'utilisateur à modifier" />
-        <button onclick="window.open('../vue/gestionnaireModifierUtilisateur.html')"> Modifier </button><br/> <br/> 
-        
+    <fieldset>
+            <legend> <h3>Modifier un utilisateur </h3></legend>
+            <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurMdUser"])){ echo $_SESSION["erreurMdUser"]; }?>
+            </div>
+
+        <form method="post" action="../controler/controleur_gestModifUser.php">
+                <label for="idUtilisateur"> ID :  </label>
+                <?php 
+                $bd = new Bd();
+                $co= $bd->connexion();
+
+                $req = "SELECT idPersonne FROM personne "; 
+    
+                $res = mysqli_query($co, $req)
+                    or die ("Erreur : SELECT idUtilisateur FROM personne ");
+                //mysql_close($co);
+                 ?>
+                   <!--  <select name="idArt" onchange="showUser(this.value)"> -->
+                    <select name="idUtilisateur">
+                    
+                        <?php 
+                        while ($row = mysqli_fetch_row($res)) {
+                        ?>
+                        <option value="<?php echo $row[0];?>"><?php echo $row[0];?> </option>
+                        <?php
+                        }
+                         ?>
+                    </select>
+                <br/>
+                <br/>
+
+               <label for="title"> Donnée à modifier :  </label>
+                    <select name="title" >
+                        <option value="nom">Nom</option>
+                        <option value="prenom">Prénom</option>
+                        <option value="email">Email</option>
+                        <option value="caution">Caution</option>
+                        <option value="finance">Finance</option>
+                    </select>
+                <br/>
+                <br/>
+
+
+                <label for="donnee"> Nouvelle donnée :  </label>
+                    <input type="text" name="donnee" id="donnee" />
+                <br/>
+                <br/>
+
+                <input type="submit" value="Modifier">
+            </form>
+        </fieldset>
         
     </div>
 </body>
@@ -278,4 +327,5 @@
     unset($_SESSION["listInfoUser"]);
     unset($_SESSION["erreurUser"]); 
     unset($_SESSION["erreurSpUser"]);
+    unset($_SESSION["erreurMdUser"]);
 ?>

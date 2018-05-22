@@ -103,12 +103,8 @@
     </div>
     <div id="header">
         <a href="../view/vue_accueil.php">
+            <br><br><br>
             <h1>Médiathèque de l'Université Paris-Sud</h1> </a>
-        <form>
-            <input type="text" name="recherche" value="Chercher un article..." />
-            <button class="chercher"> CHERCHER
-            </button>
-        </form>
     </div>
     <div id="navigation">
         <h2> 
@@ -130,13 +126,12 @@
         
         <p> <b> Id : </b> <?php echo $_SESSION["id"] ?> </p>
         <p> <b>Email : </b><?php echo $_SESSION["email"] ?></p>
-        <p> <b>Portable : pas encore definit</b></p>
         <p> <b>Situation : </b>
             <?php if ($_SESSION["estValide"]==1)
-                echo "Vous êtes un/une utilisateur validé. Vous pouver emprunter/réserver les articles
+                echo "Vous êtes un/une utilisateur validé. Vous pouvez emprunter/réserver les articles
                 <p> <b>Caution : </b>".$_SESSION["caution"]."€</p>
                 <p> <b>Finance : </b>".$_SESSION["finance"]."€</p>";
-                else echo "Votre inscription n'est pas encore validé.";
+                else echo "Votre inscription n'est pas encore validé. ";
             ?>
         </p> 
 
