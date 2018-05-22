@@ -5,6 +5,7 @@
 	require_once("../model/bd.php");
 	// require_once("../model/user.php");
 	//$_SESSION["erreurConnexion"] = "";
+    $_SESSION["listInfoUser"] = "";
 	
 	$bd = new Bd();
 	$co= $bd->connexion();
