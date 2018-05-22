@@ -1,10 +1,9 @@
 # ProjetGLA2018
-## Introduction
+
+## Introduction - Projet Médiathèque
+
 	
-##Executer et Compiler
-Nous n'avons pas utiliser Framework. Nous avons utiliser XAMPP pour créer un serveur de test local
-* 
-*
+##Executer et Compiler par xampp
+Nous avons utiliser modèle MVC. Nous avons utilisé XAMPP pour créer un serveur de test local.
+Dans le repertoire src/exemples, vous trouvrez un fichier mediatheque.sql. Pour tester, il faut importer le fichier sql dans le phpMyAdmin.
 
-
- les grandes lignes de votre projet et comment l'exécuter/compiler
