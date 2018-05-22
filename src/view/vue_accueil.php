@@ -15,15 +15,22 @@
             padding:0;
         }
         .recherche{
-            width: 630px;
+            width: 700px;
             height: 48px;
             background:rgba(0,0,0,.2);
             padding:15px;
             border:none;
             border-radius:5px;          
         }
+        select{
+            width: 120px;
+            height: 50px;
+            background-color: orange;
+            border:none;
+            font: bold 18px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        }
         input{
-            width: 480px;
+            width: 420px;
             height: 50px;
             background-color: #eeeeee;
             border:none;
@@ -32,7 +39,8 @@
             font: bold 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
             font-style:italic;
         }
-        button{
+
+        input[type=submit]{
             
             width:140px;
             height: 50px;
@@ -45,8 +53,9 @@
             font-size:18px;
             font-weight: bold;
         }
-        /*使用伪类来添加三角符号*/
-        button:before{
+/*        /*使用伪类来添加三角符号*/
+
+/*        input[type=submit]:before{
             content:"";
             border-width:6px;
             border-style:solid;
@@ -54,7 +63,7 @@
             position: absolute;
             right:100%;
             top:38%;
-        }
+        }*/
 
     </style>
 </head>
@@ -102,13 +111,17 @@
         <a href="../view/vue_accueil.php"><img src="../image/bg.jpg" alt = "titre"/></a>
     </div>
     <br /> <br />
-    <form>
         <div class="recherche">
-            <input type="text" name="recherche" value="Chercher un article..." />
-            <button> CHERCHER
-            </button>
+            <form method="post" action="../controler/controleur_chercherArticle.php">
+                <select name="type">
+                                <option value="idArticle"> idArticle </option>
+                                <option value="chaine"> Titre/Auteur/Catégorie </option>
+                </select>
+                <input type="text" name="chercherArticle" id="chercherArticle" placeholder="Chercher un article..." />
+                <input type="submit" name="chercher" id="chercher" value="CHERCHER">
+            </form>
         </div>
-    </form>
+    
 
         <br/> <br/><br/><br/>
         
@@ -140,3 +153,4 @@
 </body>
 
 </html>
+
