@@ -217,7 +217,7 @@
         <div > <fieldset>
             <legend> <h3>Ajouter un article </h3></legend>
             <div style="color: red;font-size: 14px;">
-                <?php if(isset($_SESSION["erreurArticle"])){ echo $_SESSION["erreurArticle"]; }?>
+                <?php if(isset($_SESSION["erreurArticle"])){ echo $_SESSION["erreurArticle"];}?>
             </div>
             <form method="post" action="../controler/controleur_ajouterArticle.php">
                 <label for="type"> Type :  </label>
@@ -278,6 +278,9 @@
 
         <div > <fieldset>
             <legend> <h3>Supprimer un article </h3></legend>
+            <div style="color: red;font-size: 14px;">
+                <?php if(isset($_SESSION["erreurSpArticle"])){ echo $_SESSION["erreurSpArticle"]; }?>
+            </div>
             <form method="post" action="../controler/controleur_supprimerArticle.php">
                 <input class="operation" type="text" name="idArt" id="idArt" value="id d'article à supprimer" />
                 <input type="submit" value="Supprimer">
@@ -343,4 +346,5 @@
 </body>
 </html>
 <?php unset($_SESSION["erreurArticle"]); 
+unset($_SESSION["erreurSpArticle"]); 
 unset($_SESSION["listArticle"]);?>

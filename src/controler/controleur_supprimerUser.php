@@ -16,12 +16,12 @@
 		$art= new User($co,$idUser);
 
 		$art->supprimer($co);
-		header('Location:../view/gest_articles.php');
+		header('Location:../view/gest_infoUser.php');
 		
 	}
 	// Si les champs n'ont pas été saisis
 	else {
-		header('Location:../view/gest_articles.php');
-		echo $_SESSION["erreurArticle"] = "Veuille remplir tout les champs, svp."; 
+		header('Location:../view/gest_infoUser.php');
+		echo $_SESSION["erreurIn"] = "Veuille remplir tout les champs, svp."; 
 	}
 	?>	
