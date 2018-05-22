@@ -258,7 +258,7 @@
                 <!-- <input class="operation" type="text" name="idArt" id="idArt" value="saisir un id article existe" /> -->
                 <input type="submit" name ="ajouter" value="Ajouter">
             </form>
-           
+           </fieldset>
         </div>
         <br/>
         <br/>
@@ -269,10 +269,10 @@
                 <?php if(isset($_SESSION["erreurSpArticle"])){ echo $_SESSION["erreurSpArticle"]; }?>
             </div>
             <form method="post" action="../controler/controleur_supprimerArticle.php">
-                <input class="operation" type="text" name="idArt" id="idArt" value="id d'article à supprimer" />
+                <input class="operation" type="text" name="idArt" id="idArt" placeholder="id d'article à supprimer" />
                 <input type="submit" value="Supprimer">
             </form>
-           
+           </fieldset>
         </div>
         <br/>
         <br/>
@@ -337,7 +337,8 @@
 
                 <input type="submit" value="Modifier">
             </form>
-           
+        </fieldset>
+
         </div>
 
         <br/>

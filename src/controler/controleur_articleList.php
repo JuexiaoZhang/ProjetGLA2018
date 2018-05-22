@@ -21,7 +21,7 @@
                 <th>Auteur</th>
                 <th>Date publication</th>
                 <th>URL photo couverture</th>
-                <th>Frais</th>
+                <th>FraisEmprunt</th>
                 <th>Caution</th>
             </tr>";
 
