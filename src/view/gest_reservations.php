@@ -19,7 +19,7 @@
         height: 160px;
     }
 
-    input {
+ /*   input {
         width: 480px;
         height: 50px;
         background-color: white;
@@ -29,9 +29,9 @@
         font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
         font-style: italic;
     }
-    input.operation{
-            width: 480px;
-            height: 50px;
+*/    input{
+            width: 200px;
+            height: 30px;
             background-color: #eeeeee;
             border:none;
             border-top-left-radius:5px;
@@ -40,10 +40,10 @@
             font-style:italic;
             color: gray; 
         }
-    button {
+    input[type=submit] {
 
-        width: 140px;
-        height: 50px;
+        width: 88px;
+        height: 34px;
         background-color: #00486C;
         color: #fff;
         border: none;
@@ -53,17 +53,7 @@
         font-size: 18px;
         font-weight: bold;
     }
-    /*使用伪类来添加三角符号*/
-
-    button:before {
-        content: "";
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent #00486C transparent transparent;
-        position: absolute;
-        right: 100%;
-        top: 38%;
-    }
+   
 
 
     #navigation {
@@ -124,10 +114,8 @@
         <br/>
         <br/>
     </div>
-    <div id="section">
-        <h2>Opération </h2>  
-        
-        
+    <div id="section">  
+    
         <h2>Toutes les réservations</h2>  
 
         <?php
@@ -138,6 +126,24 @@
             else
                 echo $_SESSION["lesReservations"];
         ?>
+
+        <h2>Opération </h2> <br>
+
+        <fieldset>
+            <legend> <h3>Valider que le client a bien retiré son article reservé </h3></legend>
+            <div style="color: red;font-size: 14px;">
+                <!-- <?php if(isset($_SESSION["erreurExSup"])){ echo $_SESSION["erreurExSup"];}?> -->
+            </div>
+            <form method="post" action="../controler/controleur_validerRetire.php">
+                <br><br>
+                <label for="idReservation"> ID Réservation :  </label>
+                    <input type="text" name="idReservation" id="idReservation" />
+
+                <input class="operation" type="submit" name ="valider" value="Valider">
+                <br><br>
+            </form>
+        </div>
+    </fieldset> 
 
     </div>
 
