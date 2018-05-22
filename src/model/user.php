@@ -32,7 +32,7 @@
 					if (!$row) {
 						header('Location:../view/vue_connexion.php');
 						echo $_SESSION["erreurConnexion"] = "L'utilisateur n'existe pas"; 
-						die("L'utilisateur n'existe pas");
+						die();
 					}else{
 						
 						$this->id = $row["idPersonne"];
@@ -48,6 +48,30 @@
 					}
 					break;
 
+				//ajouter un utilisateur par gestionnaire
+
+				case 4 :
+					$co = $args[0];
+					$nom = $args[1];
+					$prenom = $args[2];
+					$email = $args[3];
+
+					$req = "INSERT INTO personne(mdp, email, prenom, nom, estValide, type, caution, finance) VALUES ('123456','".$email."','".$prenom."','".$nom."',0,'utilisateur',0,0)";
+
+					$res = mysqli_query($co, $req)
+						or die ("Erreur lors de ajouter utilisateur");
+
+					$this->co = $co;
+					$this->id = mysqli_insert_id($co); // retourne l'identifiant automatiquement généré par la dernière requête
+					$this->nom = $nom;
+					$this->prenom = $prenom;
+					$this->email = $email;
+
+					$this->mdp = '123456';
+					$this->type = 'utilisateur';
+					
+					break;
+
 				// Inscription : création du membre dans la BD
 				case 5 :
 					$co = $args[0];
@@ -55,9 +79,6 @@
 					$prenom = $args[2];
 					$email = $args[3];
 					$mdp = $args[4];
-
-					
-
 
 					$req = "INSERT INTO personne(mdp, email, prenom, nom, estValide, type, caution, finance) VALUES ('".$mdp."','".$email."','".$prenom."','".$nom."',0,'utilisateur',0,0)";
 
