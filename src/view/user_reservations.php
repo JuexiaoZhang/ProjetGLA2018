@@ -96,14 +96,15 @@
         <br/>
         <br>
     </div>
+
     <div id="section">
         <h2>Mes réservations </h2>
         <?php
             if(!isset($_SESSION["mesReservations"])) 
-                header('Location:../controler/controleur_userConsultRserv.php');
+               header('Location:../controler/controleur_userConsultRserv.php');
             else
-                echo $_SESSION["mesReservations"];
-        ?> <br> <br>
+               echo $_SESSION["mesReservations"];
+        ?> <br> <br> 
         <p> *Votre reservation sera annulée automatiquement dans 15 jours, si elle est toujous non dispinible ou si vous n'avez toujous pas recuperé votre article. </p>
     </div>
 </body>

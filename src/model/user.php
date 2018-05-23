@@ -193,6 +193,14 @@
 		public function annulerReservation($idRservation) {
 			mysqli_query($this->co, "DELETE FROM reservation WHERE idReservation=$idRservation")
 				or die ("Erreur annulation sa reservation");
+				
+			// $res=mysqli_query($this->co, "SELECT idExemplaire FROM exemplaire WHERE exemplaire.idArticle = (SELECT reservation.idArticle FROM reservation WHERE reservation.idReservation = ".$idRservation.") AND dansListRsv = 1")
+			// 	or die ("Erreur SELECT idExemplaire");
+			// $row = mysqli_fetch_row($res);
+   //          $idExemplaire = $row[0];
+
+   //          mysqli_query($this->co, "UPDATE exemplaire SET dansListRsv=0 WHERE idExemplaire =".$idExemplaire)
+			// 	or die ("Erreur UPDATE exemplaire");
 		}
 	}
 ?>

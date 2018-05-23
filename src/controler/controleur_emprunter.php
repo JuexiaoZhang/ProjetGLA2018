@@ -69,7 +69,7 @@
                 //insert emprunt
                 $sql = "INSERT INTO emprunt(idUtilisateur, idExemplaire, dateEmprunt) VALUES (".$idUser.",".$idExemplaire.",CURRENT_TIMESTAMP)";
                 if(!mysqli_query($co, $sql)){
-                    $_SESSION['erreurEmpCon'] = "erruer : insert emprunt ";
+                    $_SESSION['erreurEmpCon'] = "erruer : insert emprunt, idExemplaire est ".$idExemplaire." idArticle est ".$idArticle;
                     header('Location:../view/vue_article.php');
                     die();
                 }

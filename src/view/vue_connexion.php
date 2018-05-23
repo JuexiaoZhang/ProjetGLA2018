@@ -11,6 +11,25 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title> Bienvenue </title>
 		<link rel="stylesheet" href="../style/stylePrincipal.css" />
+				<style type="text/css">
+			
+button {
+	width:100px;
+	margin-left:5px;
+	 
+	background-color: #00486C;
+	padding: 3px;
+	border:1px solid #AADAEF;
+	border-radius:5px;
+	box-shadow:1px 1px 1px #00486C;
+	cursor:pointer;
+	 
+	/*font-family: Calibri;*/
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+		</style>
 	</head>
 
 	<body >
@@ -39,8 +58,11 @@
 								<input type="password" name="mdp" id="mdp"/> <br/>
 								<br/>
 							<input type="submit" name ="Action" value = "Connecter"/> <br/>
+						</form> <br>
+						<button onclick="window.location='../view/vue_accueil.php'" name="annuler"> Annuler </button>
+					
 					</div>
-
+				</fieldset>
 				</div>
 
 			<div class = "inscription">
@@ -52,7 +74,7 @@
 			<div class = "mdpoublier">
 				<p>
 					Vous avez oublié votre mot de passe?
-					<a href = "user_modifierMdp.php"> Cliquez ici </a>
+					<a href = "../view/vue_connexion1.php"> Cliquez ici </a>
 				</p>
 			</div>
 

@@ -114,8 +114,9 @@
         <div class="recherche">
             <form method="post" action="../controler/controleur_chercherArticle.php">
                 <select name="type">
-                                <option value="idArticle"> idArticle </option>
-                                <option value="chaine"> Titre/Auteur/Catégorie </option>
+                        <option value="chaine"> Titre/Auteur/Catégorie </option>
+                        <option value="idArticle"> idArticle </option>
+                                
                 </select>
                 <input type="text" name="chercherArticle" id="chercherArticle" placeholder="Chercher un article..." />
                 <input type="submit" name="chercher" id="chercher" value="CHERCHER">
